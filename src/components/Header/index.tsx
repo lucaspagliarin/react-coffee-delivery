@@ -11,7 +11,7 @@ import {
 export function Header() {
   return (
     <HeaderComponent>
-      <img src={CoffeeLogo} />
+      <img src={CoffeeLogo} alt="" />
       <LinksContainer>
         <Location>
           <MapPin size={22} weight="fill" />
