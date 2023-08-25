@@ -1,19 +1,21 @@
 import { CardContainer, DetailsContainer, ActionsContainer } from './styles'
 
-import Americano from '../../../assets/Type=Americano.png'
 import { Counter } from '../../../components/Counter'
 import { Trash } from 'phosphor-react'
+import { CartContext, CartItemType } from '../../../contexts/CartContext'
+import { useContext } from 'react'
 
-export function CoffeeCard() {
+export function CoffeeCard({ Coffee, quantity }: CartItemType) {
+  const { handleRemoveItemFromCart } = useContext(CartContext)
   return (
     <CardContainer>
       <DetailsContainer>
-        <img src={Americano} alt="" width={64} height={64} />
+        <img src={Coffee.image} alt="" width={64} height={64} />
         <div>
-          <span>Expresso Tradicional</span>
+          <span>{Coffee.name}</span>
           <ActionsContainer>
-            <Counter />
-            <button>
+            <Counter {...Coffee} />
+            <button onClick={() => handleRemoveItemFromCart(Coffee)}>
               <Trash size={16} />
               Remover
             </button>
@@ -21,7 +23,13 @@ export function CoffeeCard() {
         </div>
       </DetailsContainer>
 
-      <span>R$9,90</span>
+      <span>
+        R${' '}
+        {Intl.NumberFormat('pt-Br', {
+          style: 'decimal',
+          minimumFractionDigits: 2,
+        }).format(Coffee.price * quantity)}
+      </span>
     </CardContainer>
   )
 }

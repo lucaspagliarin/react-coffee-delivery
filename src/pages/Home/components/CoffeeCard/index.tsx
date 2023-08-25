@@ -5,35 +5,22 @@ import {
   TagList,
 } from './styles'
 
+import { Link } from 'react-router-dom'
 import { Counter } from '../../../../components/Counter'
 import { ShoppingCart } from 'phosphor-react'
+import { CoffeeProps } from '../../../../contexts/CoffeeListContext'
 
-interface CoffeeProps {
-  id: number
-  name: string
-  description: string
-  price: number
-  tags: string[]
-  image: string
-}
-
-export function CoffeeCard({
-  tags,
-  name,
-  description,
-  price,
-  image,
-}: CoffeeProps) {
+export function CoffeeCard(Coffee: CoffeeProps) {
   return (
     <CoffeeCardContainer>
-      <img src={image} alt="" />
+      <img src={Coffee.image} alt="" />
       <TagList>
-        {tags.map((tag) => (
+        {Coffee.tags.map((tag) => (
           <span key={tag}>{tag}</span>
         ))}
       </TagList>
-      <h2>{name}</h2>
-      <p>{description}</p>
+      <h2>{Coffee.name}</h2>
+      <p>{Coffee.description}</p>
       <footer>
         <PriceContainer>
           R${' '}
@@ -41,14 +28,16 @@ export function CoffeeCard({
             {Intl.NumberFormat('pt-Br', {
               style: 'decimal',
               minimumFractionDigits: 2,
-            }).format(price)}
+            }).format(Coffee.price)}
           </span>
         </PriceContainer>
         <ActionsContainer>
-          <Counter />
-          <button>
-            <ShoppingCart weight="fill" />
-          </button>
+          <Counter {...Coffee} />
+          <Link to={'/checkout'}>
+            <button>
+              <ShoppingCart weight="fill" />
+            </button>
+          </Link>
         </ActionsContainer>
       </footer>
     </CoffeeCardContainer>

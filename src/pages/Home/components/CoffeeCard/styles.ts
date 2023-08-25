@@ -63,7 +63,7 @@ export const ActionsContainer = styled.div`
   display: flex;
   gap: 0.5rem;
 
-  > button {
+  > a > button {
     display: flex;
     justify-content: center;
     align-items: center;

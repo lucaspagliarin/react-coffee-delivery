@@ -7,8 +7,12 @@ import {
   SuccessHeader,
   WrapperContainer,
 } from './styles'
+import { useContext } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 
 export function Success() {
+  const { address, paymentMethod } = useContext(OrderContext)
+
   return (
     <WrapperContainer>
       <SuccessHeader>
@@ -23,9 +27,14 @@ export function Success() {
           </IconContainer>
           <div>
             <p>
-              Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+              Entrega em{' '}
+              <strong>
+                {address.street}, {address.number}
+              </strong>
             </p>
-            <p>Farrapos - Porto Alegre, RS</p>
+            <p>
+              {address.bairro} - {address.city}, {address.uf}
+            </p>
           </div>
         </LineContainer>
         <LineContainer>
@@ -47,7 +56,15 @@ export function Success() {
           <div>
             <p>Pagamento na entrega</p>
             <p>
-              <strong>Cartão de Crédito</strong>
+              <strong>
+                {paymentMethod === 'money'
+                  ? 'Dinheiro'
+                  : paymentMethod === 'debit'
+                  ? 'Cartão de Débito'
+                  : paymentMethod === 'credit'
+                  ? 'Cartão de Crédito'
+                  : ''}
+              </strong>
             </p>
           </div>
         </LineContainer>

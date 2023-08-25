@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const PageWrapper = styled.div`
+export const PageWrapperForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 28rem;
   gap: 2rem;
@@ -16,7 +16,6 @@ export const PageWrapper = styled.div`
     margin-bottom: 0.9375rem;
   }
 `
-export const FormContainer = styled.form``
 
 export const AddressForm = styled.div`
   margin-top: 2rem;
