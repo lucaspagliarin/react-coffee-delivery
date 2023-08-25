@@ -1,8 +1,8 @@
 import Americano from '../assets/Type=Americano.png'
 import Tradicional from '../assets/Type=Expresso.png'
 import Cremoso from '../assets/Type=Expresso Cremoso.png'
-import Gelado from '../assets/Type=Café Gelado.png'
-import ComLeite from '../assets/Type=Café com Leite.png'
+import Gelado from '../assets/Type=Cafe Gelado.png'
+import ComLeite from '../assets/Type=Cafe com Leite.png'
 import Latte from '../assets/Type=Latte.png'
 import Cappucino from '../assets/Type=Capuccino.png'
 import Macchiato from '../assets/Type=Macchiato.png'
@@ -10,8 +10,8 @@ import Mochaccino from '../assets/Type=Mochaccino.png'
 import ChocolateQuente from '../assets/Type=Chocolate Quente.png'
 import Cubano from '../assets/Type=Cubano.png'
 import Havaiano from '../assets/Type=Havaiano.png'
-import Arabe from '../assets/Type=Árabe.png'
-import Irlandes from '../assets/Type=Irlandês.png'
+import Arabe from '../assets/Type=Arabe.png'
+import Irlandes from '../assets/Type=Irlandes.png'
 
 export const CoffeeList = [
   {
